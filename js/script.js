@@ -20,3 +20,8 @@ cell4.innerHTML = price + " VNĐ";
 total += price;
 
 document.getElementById("total").innerHTML = tota
+function addToCart(product){
+
+alert(product + " đã thêm vào giỏ hàng");
+
+}
