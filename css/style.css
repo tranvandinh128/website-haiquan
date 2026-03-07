@@ -1,1 +1,57 @@
+body{
+font-family:Arial;
+margin:0;
+background:#f4f4f4;
+}
 
+header{
+background:#0a6fb7;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+nav{
+background:#033e6b;
+padding:10px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.banner{
+padding:30px;
+background:#ddd;
+text-align:center;
+}
+
+.products{
+display:flex;
+gap:20px;
+padding:20px;
+justify-content:center;
+}
+
+.product{
+background:white;
+padding:15px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.product img{
+width:200px;
+}
+
+footer{
+background:#033e6b;
+color:white;
+text-align:center;
+padding:15px;
+}
