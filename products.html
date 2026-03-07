@@ -1,9 +1,10 @@
-002"}
+1"}
 <!DOCTYPE html>
-<html>
+<html lang="vi">
+
 <head>
 <meta charset="UTF-8">
-<title>Sản phẩm Hải Quân</title>
+<title>Sản phẩm Hải Sản Hải Quân</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -13,26 +14,57 @@
 
 <h1>Danh sách sản phẩm Hải Sản Hải Quân</h1>
 
-<ul>
+<div class="products">
 
-<li>Chả Cá Thu Hải Quân</li>
+<div class="product">
 
-<li>Nước Mắm Hải Quân</li>
+<img src="images/chacathu.jpg">
 
-<li>Cá Song Sắt Khúc</li>
+<h3>Chả Cá Thu Hải Quân</h3>
 
-<li>Mực biển</li>
+<p>200000 VNĐ</p>
 
-<li>Tôm biển</li>
+<button onclick="addToCart('Chả Cá Thu',200000)">
+Thêm vào giỏ hàng
+</button>
 
-</ul>
+</div>
 
-</body>
-</
-}
+<div class="product">
+
+<img src="images/nuocmam.jpg">
+
+<h3>Nước Mắm Hải Quân</h3>
+
+<p>150000 VNĐ</p>
+
+<button onclick="addToCart('Nước Mắm',150000)">
+Thêm vào giỏ hàng
+</button>
+
+</div>
+
+<div class="product">
+
+<img src="images/casong.jpg">
+
+<h3>Cá Song Sắt Khúc</h3>
+
+<p>250000 VNĐ</p>
+
+<button onclick="addToCart('Cá Song',250000)">
+Thêm vào giỏ hàng
+</button>
+
+</div>
+
+</div>
+
+
 <h2>GIỎ HÀNG</h2>
 
 <table border="1" width="100%">
+
 <tr>
 <th>Sản phẩm</th>
 <th>Giá</th>
@@ -44,4 +76,11 @@
 
 </table>
 
-<h3>Tổng tiền: <span id="total">0</span> VNĐ</h3
+<h3>Tổng tiền: <span id="total">0</span> VNĐ</h3>
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+</ht
