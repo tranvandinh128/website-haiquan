@@ -1,114 +1,66 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>Đặt hàng - Mắm Hải Quân</title>
+<h2>Đặt Hàng</h2>
 
-<style>
+<form action="https://formspree.io/f/xrbpbyaj" method="POST">
 
-body{
-font-family: Arial;
-background:#f5f5f5;
-margin:0;
-}
+<label>Họ và tên:</label><br>
+<input type="text" name="ten_khach" required><br><br>
 
-header{
-background:#0b5ed7;
-color:white;
-text-align:center;
-padding:20px;
-}
+<label>Số điện thoại:</label><br>
+<input type="tel" name="so_dien_thoai" required><br><br>
 
-form{
-background:white;
-max-width:500px;
-margin:40px auto;
-padding:20px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
+<label>Địa chỉ giao hàng:</label><br>
+<textarea name="dia_chi" required></textarea><br><br>
 
-label{
-display:block;
-margin-top:10px;
-font-weight:bold;
-}
+<label>Sản phẩm:</label><br>
+<select id="sanpham" name="san_pham" onchange="tinhTien()">
+<option value="38000">Mắm Ruốc Biển (250g)</option>
+<option value="50000">Nhân Lạc Đỏ</option>
+<option value="120000">Nước Mắm Truyền Thống</option>
+</select><br><br>
 
-input,select,textarea{
-width:100%;
-padding:10px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:5px;
-}
+<label>Đơn giá:</label><br>
+<input type="text" id="dongia" name="don_gia" readonly><br><br>
 
-button{
-margin-top:20px;
-width:100%;
-padding:12px;
-background:#28a745;
-color:white;
-border:none;
-font-size:16px;
-border-radius:5px;
-cursor:pointer;
-}
+<label>Số lượng:</label><br>
+<input type="number" id="soluong" name="so_luong" value="1" onchange="tinhTien()"><br><br>
 
-button:hover{
-background:#218838;
-}
+<label>Thành tiền:</label><br>
+<input type="text" id="thanhtien" name="thanh_tien" readonly><br><br>
 
-</style>
+<label>Thanh toán:</label><br>
+<select name="thanh_toan">
+<option>COD - Thanh toán khi nhận hàng</option>
+<option>Chuyển khoản</option>
+<option>Thanh toán Pi</option>
+</select><br><br>
 
-</head>
+<label>Ghi chú:</label><br>
+<textarea name="ghi_chu"></textarea><br><br>
 
-<body>
+<input type="hidden" name="_subject" value="Đơn hàng mới từ website">
 
-<header>
-
-<h1>Mắm Hải Quân</h1>
-<p>Đậm vị biển – Trọn tình quê</p>
-
-</header>
-
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
-<h2>Thông tin đặt hàng</h2>
-
-<label>Tên khách hàng</label>
-<input type="text" name="ten_khach_hang" required>
-
-<label>Số điện thoại</label>
-<input type="tel" name="so_dien_thoai" required>
-
-<label>Địa chỉ giao hàng</label>
-<input type="text" name="dia_chi" required>
-
-<label>Sản phẩm</label>
-<select name="san_pham">
-
-<option>Mắm tôm</option>
-<option>Mắm cá</option>
-<option>Mắm ruốc</option>
-<option>Mắm nêm</option>
-<option>Tôm khô</option>
-<option>Mực khô</option>
-
-</select>
-
-<label>Số lượng</label>
-<input type="number" name="so_luong" value="1">
-
-<label>Ghi chú</label>
-<textarea name="ghi_chu"></textarea>
-
-<button type="submit">
-
-Xác nhận đặt hàng
-
-</button>
+<button type="submit">Gửi đơn hàng</button>
 
 </form>
 
-</body>
-</html>
+
+<script>
+
+function tinhTien() {
+
+var sanpham = document.getElementById("sanpham");
+var dongia = sanpham.value;
+
+var soluong = document.getElementById("soluong").value;
+
+var thanhtien = dongia * soluong;
+
+document.getElementById("dongia").value = Number(dongia).toLocaleString() + " đ";
+
+document.getElementById("thanhtien").value = Number(thanhtien).toLocaleString() + " đ";
+
+}
+
+tinhTien();
+
+</script>
