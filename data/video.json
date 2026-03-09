@@ -1,1 +1,29 @@
-
+{
+  "youtube_search": [
+    {
+      "title": "Giới thiệu về Hải quân Việt Nam",
+      "keyword": "hải quân Việt Nam giới thiệu lực lượng hải quân"
+    },
+    {
+      "title": "Quy trình ủ nước mắm truyền thống",
+      "keyword": "quy trình ủ nước mắm truyền thống Việt Nam"
+    },
+    {
+      "title": "Cách nấu bún bò Huế ngon",
+      "keyword": "cách nấu bún bò Huế ngon chuẩn vị"
+    },
+    {
+      "title": "Quy trình đóng gói sản phẩm",
+      "keyword": "quy trình đóng gói thực phẩm đóng chai"
+    },
+    {
+      "title": "Gỏi cuốn chấm mắm nêm",
+      "keyword": "cách làm gỏi cuốn chấm mắm nêm ngon"
+    },
+    {
+      "title": "Từ biển cả đến bàn ăn",
+      "keyword": "hành trình từ biển cả đến bàn ăn hải sản Việt Nam"
+    }
+  ],
+  "limit": 6
+}
