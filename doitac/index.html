@@ -1,1 +1,162 @@
+<form action="https://formspree.io/f/xeqywqrg" method="POST">
 
+<h2>ĐĂNG KÝ ĐỐI TÁC BÁN HÀNG</h2>
+
+<label>Họ và tên</label>
+<input type="text" name="Họ và tên" required>
+
+<label>Địa chỉ</label>
+<input type="text" name="Địa chỉ" required>
+
+<label>Số điện thoại</label>
+<input type="tel" name="Số điện thoại" required>
+
+<label>Số căn cước công dân</label>
+<input type="text" name="CCCD">
+
+<label>Ngày cấp</label>
+<input type="date" name="Ngày cấp">
+
+<label>Nơi cấp</label>
+<input type="text" name="Nơi cấp">
+
+<label>Email</label>
+<input type="email" name="Email đối tác" required>
+
+<label>Địa chỉ ví Pi</label>
+<input type="text" name="Ví Pi">
+
+<label>Số tài khoản ngân hàng</label>
+<input type="text" name="Số tài khoản">
+
+<label>Ngân hàng</label>
+<select name="Ngân hàng">
+
+<option>Vietcombank</option>
+<option>VietinBank</option>
+<option>BIDV</option>
+<option>Agribank</option>
+<option>Techcombank</option>
+<option>MB Bank</option>
+<option>ACB</option>
+<option>Sacombank</option>
+<option>VPBank</option>
+<option>TPBank</option>
+<option>HDBank</option>
+<option>SHB</option>
+<option>OCB</option>
+<option>Eximbank</option>
+<option>SeABank</option>
+<option>SCB</option>
+<option>VIB</option>
+
+</select>
+
+<h3>Mặt hàng đăng ký bán</h3>
+
+<table border="1" id="productTable">
+<tr>
+<th>Tên sản phẩm</th>
+<th>Trọng lượng</th>
+<th>Số lượng</th>
+<th>Đơn giá</th>
+<th>Thành tiền</th>
+<th>Tỷ giá Pi</th>
+</tr>
+
+<tr>
+<td><input name="Tên sản phẩm[]"></td>
+<td><input name="Trọng lượng[]"></td>
+<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
+<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
+<td><input name="Thành tiền[]" readonly></td>
+<td><input name="Tỷ giá Pi[]"></td>
+</tr>
+
+<tr>
+<td><input name="Tên sản phẩm[]"></td>
+<td><input name="Trọng lượng[]"></td>
+<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
+<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
+<td><input name="Thành tiền[]" readonly></td>
+<td><input name="Tỷ giá Pi[]"></td>
+</tr>
+
+<tr>
+<td><input name="Tên sản phẩm[]"></td>
+<td><input name="Trọng lượng[]"></td>
+<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
+<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
+<td><input name="Thành tiền[]" readonly></td>
+<td><input name="Tỷ giá Pi[]"></td>
+</tr>
+
+<tr>
+<td><input name="Tên sản phẩm[]"></td>
+<td><input name="Trọng lượng[]"></td>
+<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
+<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
+<td><input name="Thành tiền[]" readonly></td>
+<td><input name="Tỷ giá Pi[]"></td>
+</tr>
+
+<tr>
+<td><input name="Tên sản phẩm[]"></td>
+<td><input name="Trọng lượng[]"></td>
+<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
+<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
+<td><input name="Thành tiền[]" readonly></td>
+<td><input name="Tỷ giá Pi[]"></td>
+</tr>
+
+</table>
+
+<br>
+
+<button type="button" onclick="themDong()">+ Thêm sản phẩm</button>
+
+<br><br>
+
+<label>Chiết khấu cho chủ shop</label>
+<input type="text" name="Chiết khấu (VNĐ hoặc %)">
+
+<br><br>
+
+<input type="hidden" name="_cc" value="tranvandinh1281984@gmail.com">
+
+<button type="submit">Gửi đăng ký</button>
+
+</form>
+
+
+<script>
+
+function tinhTien(el){
+
+let row = el.parentNode.parentNode;
+
+let sl = row.cells[2].children[0].value;
+let dg = row.cells[3].children[0].value;
+
+row.cells[4].children[0].value = sl * dg;
+
+}
+
+function themDong(){
+
+let table = document.getElementById("productTable");
+
+let row = table.insertRow();
+
+row.innerHTML = `
+<td><input name="Tên sản phẩm[]"></td>
+<td><input name="Trọng lượng[]"></td>
+<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
+<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
+<td><input name="Thành tiền[]" readonly></td>
+<td><input name="Tỷ giá Pi[]"></td>
+`;
+
+}
+
+</script>
