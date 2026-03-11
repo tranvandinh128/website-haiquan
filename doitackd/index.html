@@ -7,16 +7,9 @@
 <style>
 body{
 font-family: Arial;
-background:#f4f4f4;
-padding:20px;
-}
-
-.container{
-background:#fff;
-padding:20px;
-border-radius:8px;
 max-width:900px;
 margin:auto;
+padding:20px;
 }
 
 h2{
@@ -47,66 +40,36 @@ text-align:center;
 
 button{
 padding:10px 15px;
+margin-top:10px;
 background:#c40000;
 color:white;
 border:none;
 cursor:pointer;
-margin-top:10px;
 }
-
-button:hover{
-background:#900000;
-}
-
 </style>
 
 <script>
 
+function tinhTien(row){
+let sl=row.querySelector(".soluong").value
+let dg=row.querySelector(".dongia").value
+row.querySelector(".thanhtien").value=sl*dg
+}
+
 function themDong(){
-var table=document.getElementById("sanpham");
-var row=table.insertRow(-1);
 
-for(var i=0;i<6;i++){
-var cell=row.insertCell(i);
+let table=document.getElementById("bangsp")
 
-if(i==0){
-cell.innerHTML="<input name='ten_sp[]'>";
-}
+let row=table.insertRow()
 
-if(i==1){
-cell.innerHTML="<input name='trong_luong[]'>";
-}
-
-if(i==2){
-cell.innerHTML="<input type='number' name='so_luong[]' oninput='tinhTien(this)'>";
-}
-
-if(i==3){
-cell.innerHTML="<input type='number' name='don_gia[]' oninput='tinhTien(this)'>";
-}
-
-if(i==4){
-cell.innerHTML="<input name='thanh_tien[]' readonly>";
-}
-
-if(i==5){
-cell.innerHTML="<input name='ty_gia_pi[]'>";
-}
-
-}
-
-}
-
-function tinhTien(el){
-
-var row=el.parentNode.parentNode;
-
-var sl=row.cells[2].children[0].value;
-var dg=row.cells[3].children[0].value;
-
-var tt=sl*dg;
-
-row.cells[4].children[0].value=tt;
+row.innerHTML=`
+<td><input name="ten_sp[]"></td>
+<td><input name="trongluong[]"></td>
+<td><input type="number" class="soluong" name="soluong[]" onkeyup="tinhTien(this.parentElement.parentElement)"></td>
+<td><input type="number" class="dongia" name="dongia[]" onkeyup="tinhTien(this.parentElement.parentElement)"></td>
+<td><input class="thanhtien" name="thanhtien[]" readonly></td>
+<td><input name="tygia_pi[]"></td>
+`
 
 }
 
@@ -116,69 +79,59 @@ row.cells[4].children[0].value=tt;
 
 <body>
 
-<div class="container">
-
 <h2>FORM ĐĂNG KÝ ĐỐI TÁC KINH DOANH</h2>
 
 <form action="https://formspree.io/f/yourID" method="POST">
 
-<input type="hidden" name="_cc" value="">
-<input type="hidden" name="_subject" value="Đăng ký đối tác kinh doanh">
-
 <label>Họ và tên</label>
-<input type="text" name="ho_ten" required>
+<input type="text" name="hoten" required>
 
 <label>Địa chỉ</label>
-<input type="text" name="dia_chi">
+<input type="text" name="diachi">
 
 <label>Số điện thoại</label>
-<input type="text" name="dien_thoai">
+<input type="text" name="sdt">
 
 <label>Số căn cước công dân</label>
 <input type="text" name="cccd">
 
 <label>Ngày cấp</label>
-<input type="date" name="ngay_cap">
+<input type="date" name="ngaycap">
 
 <label>Nơi cấp</label>
-<input type="text" name="noi_cap">
+<input type="text" name="noicap">
 
 <label>Email</label>
-<input type="email" name="email" required 
-onchange="document.querySelector('input[name=_cc]').value=this.value">
+<input type="email" name="email">
 
-<label>Địa chỉ ví PI</label>
-<input type="text" name="vi_pi">
+<label>Địa chỉ ví Pi</label>
+<input type="text" name="pi">
 
 <label>Số tài khoản ngân hàng</label>
 <input type="text" name="stk">
 
 <label>Ngân hàng</label>
-
-<select name="ngan_hang">
+<select name="nganhang">
 
 <option>Vietcombank</option>
-<option>Vietinbank</option>
 <option>BIDV</option>
+<option>VietinBank</option>
 <option>Agribank</option>
-<option>MB Bank</option>
 <option>Techcombank</option>
+<option>MB Bank</option>
 <option>ACB</option>
 <option>Sacombank</option>
 <option>VPBank</option>
 <option>TPBank</option>
 <option>SHB</option>
-<option>OCB</option>
-<option>Eximbank</option>
-<option>SeABank</option>
-<option>VIB</option>
 
 </select>
 
 <h3>Mặt hàng đăng ký bán</h3>
 
-<table id="sanpham">
+<table>
 
+<thead>
 <tr>
 <th>Tên sản phẩm</th>
 <th>Trọng lượng</th>
@@ -187,74 +140,44 @@ onchange="document.querySelector('input[name=_cc]').value=this.value">
 <th>Thành tiền</th>
 <th>Tỷ giá Pi</th>
 </tr>
+</thead>
+
+<tbody id="bangsp">
 
 <tr>
 <td><input name="ten_sp[]"></td>
-<td><input name="trong_luong[]"></td>
-<td><input type="number" name="so_luong[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="don_gia[]" oninput="tinhTien(this)"></td>
-<td><input name="thanh_tien[]" readonly></td>
-<td><input name="ty_gia_pi[]"></td>
+<td><input name="trongluong[]"></td>
+<td><input type="number" class="soluong" name="soluong[]" onkeyup="tinhTien(this.parentElement.parentElement)"></td>
+<td><input type="number" class="dongia" name="dongia[]" onkeyup="tinhTien(this.parentElement.parentElement)"></td>
+<td><input class="thanhtien" name="thanhtien[]" readonly></td>
+<td><input name="tygia_pi[]"></td>
 </tr>
 
-<tr>
-<td><input name="ten_sp[]"></td>
-<td><input name="trong_luong[]"></td>
-<td><input type="number" name="so_luong[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="don_gia[]" oninput="tinhTien(this)"></td>
-<td><input name="thanh_tien[]" readonly></td>
-<td><input name="ty_gia_pi[]"></td>
-</tr>
-
-<tr>
-<td><input name="ten_sp[]"></td>
-<td><input name="trong_luong[]"></td>
-<td><input type="number" name="so_luong[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="don_gia[]" oninput="tinhTien(this)"></td>
-<td><input name="thanh_tien[]" readonly></td>
-<td><input name="ty_gia_pi[]"></td>
-</tr>
-
-<tr>
-<td><input name="ten_sp[]"></td>
-<td><input name="trong_luong[]"></td>
-<td><input type="number" name="so_luong[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="don_gia[]" oninput="tinhTien(this)"></td>
-<td><input name="thanh_tien[]" readonly></td>
-<td><input name="ty_gia_pi[]"></td>
-</tr>
-
-<tr>
-<td><input name="ten_sp[]"></td>
-<td><input name="trong_luong[]"></td>
-<td><input type="number" name="so_luong[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="don_gia[]" oninput="tinhTien(this)"></td>
-<td><input name="thanh_tien[]" readonly></td>
-<td><input name="ty_gia_pi[]"></td>
-</tr>
+</tbody>
 
 </table>
 
-<button type="button" onclick="themDong()">Thêm sản phẩm</button>
+<button type="button" onclick="themDong()">Thêm dòng sản phẩm</button>
 
-<h3>Chiết khấu cho chủ shop</h3>
+<label>Chiết khấu cho chủ shop</label>
 
-<select name="chiet_khau">
+<select name="chietkhau">
 
 <option>Chiết khấu theo số tiền trên đơn</option>
-<option>% tổng doanh thu theo tháng</option>
+<option>Chiết khấu theo % doanh thu tháng</option>
 
 </select>
 
-<input type="text" name="gia_tri_chiet_khau" placeholder="Nhập giá trị chiết khấu">
+<label>Ghi rõ mức chiết khấu</label>
+<input type="text" name="mucchietkhau">
+
+<input type="hidden" name="_cc" value="">
 
 <br>
 
 <button type="submit">Gửi đăng ký</button>
 
 </form>
-
-</div>
 
 </body>
 </html>
