@@ -1,40 +1,121 @@
-<form action="https://formspree.io/f/xeqywqrg" method="POST">
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng ký đối tác kinh doanh</title>
 
-<h2>ĐĂNG KÝ ĐỐI TÁC BÁN HÀNG</h2>
+<style>
+body{
+font-family: Arial;
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+h2{
+text-align:center;
+color:#c40000;
+}
+
+input,select{
+width:100%;
+padding:8px;
+margin:5px 0;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+table,th,td{
+border:1px solid #ccc;
+}
+
+th,td{
+padding:8px;
+text-align:center;
+}
+
+button{
+padding:10px 15px;
+margin-top:10px;
+background:#c40000;
+color:white;
+border:none;
+cursor:pointer;
+}
+</style>
+
+<script>
+
+function tinhTien(row){
+let sl=row.querySelector(".soluong").value
+let dg=row.querySelector(".dongia").value
+row.querySelector(".thanhtien").value=sl*dg
+}
+
+function themDong(){
+
+let table=document.getElementById("bangsp")
+
+let row=table.insertRow()
+
+row.innerHTML=`
+<td><input name="ten_sp[]"></td>
+<td><input name="trongluong[]"></td>
+<td><input type="number" class="soluong" name="soluong[]" onkeyup="tinhTien(this.parentElement.parentElement)"></td>
+<td><input type="number" class="dongia" name="dongia[]" onkeyup="tinhTien(this.parentElement.parentElement)"></td>
+<td><input class="thanhtien" name="thanhtien[]" readonly></td>
+<td><input name="tygia_pi[]"></td>
+`
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>FORM ĐĂNG KÝ ĐỐI TÁC KINH DOANH</h2>
+
+<form action="https://formspree.io/f/yourID" method="POST">
 
 <label>Họ và tên</label>
-<input type="text" name="Họ và tên" required>
+<input type="text" name="hoten" required>
 
 <label>Địa chỉ</label>
-<input type="text" name="Địa chỉ" required>
+<input type="text" name="diachi">
 
 <label>Số điện thoại</label>
-<input type="tel" name="Số điện thoại" required>
+<input type="text" name="sdt">
 
 <label>Số căn cước công dân</label>
-<input type="text" name="CCCD">
+<input type="text" name="cccd">
 
 <label>Ngày cấp</label>
-<input type="date" name="Ngày cấp">
+<input type="date" name="ngaycap">
 
 <label>Nơi cấp</label>
-<input type="text" name="Nơi cấp">
+<input type="text" name="noicap">
 
 <label>Email</label>
-<input type="email" name="Email đối tác" required>
+<input type="email" name="email">
 
 <label>Địa chỉ ví Pi</label>
-<input type="text" name="Ví Pi">
+<input type="text" name="pi">
 
 <label>Số tài khoản ngân hàng</label>
-<input type="text" name="Số tài khoản">
+<input type="text" name="stk">
 
 <label>Ngân hàng</label>
-<select name="Ngân hàng">
+<select name="nganhang">
 
 <option>Vietcombank</option>
-<option>VietinBank</option>
 <option>BIDV</option>
+<option>VietinBank</option>
 <option>Agribank</option>
 <option>Techcombank</option>
 <option>MB Bank</option>
@@ -42,19 +123,15 @@
 <option>Sacombank</option>
 <option>VPBank</option>
 <option>TPBank</option>
-<option>HDBank</option>
 <option>SHB</option>
-<option>OCB</option>
-<option>Eximbank</option>
-<option>SeABank</option>
-<option>SCB</option>
-<option>VIB</option>
 
 </select>
 
 <h3>Mặt hàng đăng ký bán</h3>
 
-<table border="1" id="productTable">
+<table>
+
+<thead>
 <tr>
 <th>Tên sản phẩm</th>
 <th>Trọng lượng</th>
@@ -63,100 +140,44 @@
 <th>Thành tiền</th>
 <th>Tỷ giá Pi</th>
 </tr>
+</thead>
+
+<tbody id="bangsp">
 
 <tr>
-<td><input name="Tên sản phẩm[]"></td>
-<td><input name="Trọng lượng[]"></td>
-<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
-<td><input name="Thành tiền[]" readonly></td>
-<td><input name="Tỷ giá Pi[]"></td>
+<td><input name="ten_sp[]"></td>
+<td><input name="trongluong[]"></td>
+<td><input type="number" class="soluong" name="soluong[]" onkeyup="tinhTien(this.parentElement.parentElement)"></td>
+<td><input type="number" class="dongia" name="dongia[]" onkeyup="tinhTien(this.parentElement.parentElement)"></td>
+<td><input class="thanhtien" name="thanhtien[]" readonly></td>
+<td><input name="tygia_pi[]"></td>
 </tr>
 
-<tr>
-<td><input name="Tên sản phẩm[]"></td>
-<td><input name="Trọng lượng[]"></td>
-<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
-<td><input name="Thành tiền[]" readonly></td>
-<td><input name="Tỷ giá Pi[]"></td>
-</tr>
-
-<tr>
-<td><input name="Tên sản phẩm[]"></td>
-<td><input name="Trọng lượng[]"></td>
-<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
-<td><input name="Thành tiền[]" readonly></td>
-<td><input name="Tỷ giá Pi[]"></td>
-</tr>
-
-<tr>
-<td><input name="Tên sản phẩm[]"></td>
-<td><input name="Trọng lượng[]"></td>
-<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
-<td><input name="Thành tiền[]" readonly></td>
-<td><input name="Tỷ giá Pi[]"></td>
-</tr>
-
-<tr>
-<td><input name="Tên sản phẩm[]"></td>
-<td><input name="Trọng lượng[]"></td>
-<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
-<td><input name="Thành tiền[]" readonly></td>
-<td><input name="Tỷ giá Pi[]"></td>
-</tr>
+</tbody>
 
 </table>
 
-<br>
-
-<button type="button" onclick="themDong()">+ Thêm sản phẩm</button>
-
-<br><br>
+<button type="button" onclick="themDong()">Thêm dòng sản phẩm</button>
 
 <label>Chiết khấu cho chủ shop</label>
-<input type="text" name="Chiết khấu (VNĐ hoặc %)">
 
-<br><br>
+<select name="chietkhau">
 
-<input type="hidden" name="_cc" value="tranvandinh1281984@gmail.com">
+<option>Chiết khấu theo số tiền trên đơn</option>
+<option>Chiết khấu theo % doanh thu tháng</option>
+
+</select>
+
+<label>Ghi rõ mức chiết khấu</label>
+<input type="text" name="mucchietkhau">
+
+<input type="hidden" name="_cc" value="">
+
+<br>
 
 <button type="submit">Gửi đăng ký</button>
 
 </form>
 
-
-<script>
-
-function tinhTien(el){
-
-let row = el.parentNode.parentNode;
-
-let sl = row.cells[2].children[0].value;
-let dg = row.cells[3].children[0].value;
-
-row.cells[4].children[0].value = sl * dg;
-
-}
-
-function themDong(){
-
-let table = document.getElementById("productTable");
-
-let row = table.insertRow();
-
-row.innerHTML = `
-<td><input name="Tên sản phẩm[]"></td>
-<td><input name="Trọng lượng[]"></td>
-<td><input type="number" name="Số lượng[]" oninput="tinhTien(this)"></td>
-<td><input type="number" name="Đơn giá[]" oninput="tinhTien(this)"></td>
-<td><input name="Thành tiền[]" readonly></td>
-<td><input name="Tỷ giá Pi[]"></td>
-`;
-
-}
-
-</script>
+</body>
+</html>
