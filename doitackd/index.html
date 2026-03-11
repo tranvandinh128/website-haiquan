@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng ký đối tác kinh doanh</title>
 
+<style>
+body{
+font-family: Arial;
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+input,select{
+width:100%;
+padding:8px;
+margin:5px 0 15px 0;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-bottom:10px;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:6px;
+}
+
+button{
+padding:10px 20px;
+background:#c40000;
+color:white;
+border:none;
+cursor:pointer;
+}
+</style>
+
+<script>
+function themDong(){
+var table=document.getElementById("sanpham");
+var row=table.insertRow(-1);
+
+for(var i=0;i<6;i++){
+var cell=row.insertCell(i);
+cell.innerHTML='<input type="text" name="sp[]">';
+}
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Form đăng ký đối tác kinh doanh</h2>
+
+<form action="https://formspree.io/f/yourID" method="POST">
+
+<h3>Thông tin cá nhân</h3>
+
+<label>Họ và tên</label>
+<input type="text" name="hoten" required>
+
+<label>Địa chỉ</label>
+<input type="text" name="diachi">
+
+<label>Số điện thoại</label>
+<input type="text" name="sdt">
+
+<label>Số căn cước công dân</label>
+<input type="text" name="cccd">
+
+<label>Ngày cấp</label>
+<input type="date" name="ngaycap">
+
+<label>Nơi cấp</label>
+<input type="text" name="noicap">
+
+<label>Email</label>
+<input type="email" name="email">
+
+<label>Địa chỉ ví Pi</label>
+<input type="text" name="pi">
+
+<label>Số tài khoản ngân hàng</label>
+<input type="text" name="stk">
+
+<label>Ngân hàng</label>
+<select name="nganhang">
+<option>Vietcombank</option>
+<option>VietinBank</option>
+<option>BIDV</option>
+<option>Agribank</option>
+<option>Techcombank</option>
+<option>MB Bank</option>
+<option>ACB</option>
+<option>VPBank</option>
+<option>Sacombank</option>
+<option>TPBank</option>
+<option>SHB</option>
+<option>OCB</option>
+</select>
+
+<h3>Mặt hàng đăng ký bán</h3>
+
+<table id="sanpham">
+
+<tr>
+<th>Tên sản phẩm</th>
+<th>Trọng lượng</th>
+<th>Số lượng</th>
+<th>Đơn giá</th>
+<th>Thành tiền</th>
+<th>Tỷ giá Pi</th>
+</tr>
+
+<tr>
+<td><input type="text" name="sp1"></td>
+<td><input type="text" name="tl1"></td>
+<td><input type="text" name="sl1"></td>
+<td><input type="text" name="dg1"></td>
+<td><input type="text" name="tt1"></td>
+<td><input type="text" name="pi1"></td>
+</tr>
+
+<tr>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+</tr>
+
+<tr>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+</tr>
+
+<tr>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+</tr>
+
+<tr>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+</tr>
+
+</table>
+
+<button type="button" onclick="themDong()">Thêm dòng sản phẩm</button>
+
+<h3>Chiết khấu cho chủ shop</h3>
+
+<label>Số tiền trên đơn hoặc % doanh thu tháng</label>
+<input type="text" name="chietkhau">
+
+<br><br>
+
+<button type="submit">Gửi đăng ký</button>
+
+</form>
+
+</body>
+</html>
